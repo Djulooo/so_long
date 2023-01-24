@@ -6,7 +6,7 @@
 /*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 19:51:49 by juleslaisne       #+#    #+#             */
-/*   Updated: 2023/01/17 18:02:15 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/24 11:05:47 by jlaisne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	path_finding(char **tab, t_game *var, int x, int y)
 		var->temp_e--;
 	if (tab[y + 1][x] != '1' && tab[y][x - 1] != 'E')
 		path_finding(tab, var, x, y + 1);
-	if (tab[y][x - 1] == 'E')
+	if (tab[y + 1][x] == 'E')
 		var->temp_e--;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 19:51:49 by juleslaisne       #+#    #+#             */
-/*   Updated: 2023/01/17 18:01:19 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/24 11:10:53 by jlaisne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	path_finding(char **tab, t_game *var, int x, int y)
 		var->temp_e--;
 	if (tab[y][x - 1] != '1' && tab[y][x - 1] != 'E')
 		path_finding(tab, var, x - 1, y);
-	if (tab[y][x - 1] == 'E')
+	if (tab[y + 1][x] == 'E')
 		var->temp_e--;
 	if (tab[y + 1][x] != '1' && tab[y][x - 1] != 'E')
 		path_finding(tab, var, x, y + 1);
@@ -43,7 +43,7 @@ static void	path_finding(char **tab, t_game *var, int x, int y)
 int	map_playable(t_game *var)
 {
 	char	**tab;
-
+	
 	tab = malloc(sizeof(char *) * ((var->width / 50) + 1));
 	if (!tab)
 		display_error_malloc('m');

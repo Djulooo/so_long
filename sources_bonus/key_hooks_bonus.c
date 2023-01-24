@@ -6,7 +6,7 @@
 /*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 15:14:30 by juleslaisne       #+#    #+#             */
-/*   Updated: 2023/01/15 16:33:57 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/24 11:10:04 by jlaisne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,8 @@
 int	close_win(t_game *var)
 {
 	free_map(var->map);
-	mlx_destroy_image(var->mlx_ptr, var->player);
-	mlx_destroy_image(var->mlx_ptr, var->floor);
-	mlx_destroy_image(var->mlx_ptr, var->desk);
-	mlx_destroy_image(var->mlx_ptr, var->exit);
-	mlx_destroy_image(var->mlx_ptr, var->coll);
-	mlx_clear_window(var->mlx_ptr, var->mlx_win);
 	mlx_destroy_window(var->mlx_ptr, var->mlx_win);
-	free(var->mlx_ptr);
+	free(var);
 	exit (EXIT_SUCCESS);
 }
 
